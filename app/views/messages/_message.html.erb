@@ -1,0 +1,10 @@
+<div class="item-show">
+<%= message.message %>
+<span class="delete-btn">
+  <li><%= link_to message, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" do %>
+  <i class="fa fa-trash"></i><% end %></li>
+</span>
+</div>
+
+
+

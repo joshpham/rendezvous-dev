@@ -1,0 +1,185 @@
+
+#pricing * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
+
+#pricing {
+font-family: "Source Sans Pro", "helvetica", sans-serif;
+font-style: normal;
+font-weight: normal;
+text-align: center;
+font-size: 16px;
+margin-top: -50px;
+}
+
+#pricing h4 {
+margin-bottom: 12px;
+font-size: 1.25em;
+font-weight: 400;
+text-transform: uppercase;
+}
+
+#pricing h5 {
+font-size: 1.75em;
+}
+
+#pricing p {
+margin-top: 1em;
+margin-bottom: 1em;
+color: rgba(39,65,90,.9);
+font-size: 1.25em;
+line-height: 1.625em;
+}
+
+
+#pricing ol, ul {
+list-style: none;
+}
+
+#pricing body {
+line-height: 1;
+}
+
+#pricing strong {
+color: rgba(39,65,90,1);
+font-weight: 600;
+}
+
+#pricing .plans {
+background: transparent;
+}
+
+#pricing .layer {
+clear: both;
+width: 100%;
+height: auto;
+padding: 60px 7.5% 60px;
+display: block;
+}
+
+#pricing .layer > section, .layer > article {
+clear: both;
+width: 100%;
+height: auto;
+max-width: 1092px;
+margin: 0 auto;
+display: block;
+}
+
+#pricing .third {
+width: 27.95%;
+margin: 0 30px 0 0;
+display: inline-block;
+}
+
+#pricing .plan-tier {
+background: white;
+vertical-align: top;
+border-radius: 3px;
+-moz-border-radius: 3px;
+cursor: pointer;
+overflow: hidden;
+}
+
+#pricing .third.lift.plan-tier.callout {
+margin-top: -50px;
+}
+
+#pricing .lift:hover {
+-webkit-box-shadow: 0 2px 6px rgba(39,65,90,.15);
+-moz-box-shadow: 0 2px 6px rgba(39,65,90,.15);
+box-shadow: 0 2px 6px rgba(39,65,90,.15);
+}
+
+#pricing .plan-tier h4 {
+padding: 18px 0 15px;
+margin: 0 0 30px;
+background: #333;
+color: white;
+}
+
+#pricing .plan-tier {
+cursor: pointer;
+}
+
+#pricing .plan-tier sup {
+position: relative;
+right: -9px;
+}
+
+#pricing .plan-tier ul {
+margin: 30px 0 0;
+border-top: 2px solid #e7f2f0;
+}
+
+#pricing .plan-tier ul li {
+font-size: 1.25em;
+padding: 18px 0;
+color: rgba(39,65,90,.9);
+border-bottom: 2px solid #e7f2f0;
+}
+
+#pricing sup {
+vertical-align: top;
+}
+
+#pricing .plan-tier .plan-price {
+font-size: 4.5em;
+font-weight: 300;
+letter-spacing: -5px;
+}
+
+#pricing .plan-tier sub {
+vertical-align: bottom;
+position: relative;
+bottom: 1.95em;
+font-size: 16px;
+color: #bbb;
+}
+
+#pricing .plan-tier .early-adopter-price {
+color: #0091e5;
+font-size: 17px;
+letter-spacing: -.02em;
+}
+#pricing p:first-of-type {
+margin-top: 0;
+}
+
+#pricing small, del {
+color: rgba(39,65,90,.5);
+font-size: 1em;
+line-height: 1.5em;
+}
+
+#pricing s, strike, del {
+text-decoration: line-through;
+}
+
+
+#pricing .layer {
+padding-top: 96px;
+padding-bottom: 96px;
+}
+
+#pricing .plan-tier.callout h6 {
+width: 100%;
+padding: 15px 0 14px;
+background: #8dcf3f;
+color: rgba(39,65,90,.5);
+font-size: 1.25em;
+}
+
+#pricing .plan-tier.callout h4 {
+background-color: #78b336;
+}
+
+#pricing .btn {
+width: 100px;
+line-height: 2em;
+margin: 20px;
+}

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @phone_list.name %>
+</p>
+
+<p>
+  <strong>Business ID:</strong>
+  <%= @phone_list.business_id %>
+</p>
+
+  <div class="row">
+    <h3>Phone Numbers</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @phone_numbers.each do |phone_number| %>
+            <tr>
+              <%= render phone_number %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,18 @@
+
+<div style="max-width: 300px;">
+		<div class="business-name"><i class="fa fa-location-arrow" style="margin-right: 5px;"></i><%= @business.name %>
+  <div class="business-address"><%= @business.city %>, <%= @business.state %></div>
+		</div>
+		<p>
+		<h4 style="font-size: 12px;">Sign Up below for Exclusive SMS Deals!</h4>
+  <%= simple_form_for ([@businesses, @phone_number]) do |f| %>
+  <%= f.input :number, label: false, input_html: { :maxlength => 10, :type => "tel", class: "form-control inline-input" }, placeholder: '(XXX) - XXX - XXXX' %>
+  <%= f.hidden_field :phone_list_id, :value => @business.id %>
+		<div style="margin-top: 5px;">
+  <%= f.button :submit, "Follow!", :class => "btn-glow primary" %>
+		</div>
+  <% end %>
+		</p>
+		<div class="small-disclaimer">Disclaimer: Your personal information is important to us. We will never sell or distribute your phone number to any third parties. By using this service you agree to the terms of service outlined in our Privacy Policy.
+</div>
+</div>

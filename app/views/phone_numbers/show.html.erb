@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @phone_number.number %>
+</p>
+
+<p>
+  <strong>Phone List:</strong>
+  <%= @phone_number.phone_list.id %>
+</p>
+
+<p>
+  <strong>Belongs to Business Name:</strong>
+  <%= @phone_number.phone_list.business.name %>
+</p>
+
+<p>
+  <strong>Verified:?</strong>
+  <%= @phone_number.verified %>
+</p>
+
+<p>
+  <%= @phone_number.verification_code %>
+</p>
+
+<p>
+	  <strong>Active:?</strong>
+  <%= @phone_number.active %>
+</p>
+
+<p>
+	  <strong>Stop Code</strong>
+  <%= @phone_number.stop_code %>
+</p>
+
+<p>
+	  <strong>Start Code</strong>
+  <%= @phone_number.start_code %>
+</p>

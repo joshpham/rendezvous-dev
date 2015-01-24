@@ -1,0 +1,29 @@
+<div class="container">
+<div class="message-form">
+<%= form_tag(businesses_path, :method => "get") do %>
+  <%= text_field_tag :search, params[:search], class: "search", placeholder: "Search Business" %>
+  <%= submit_tag "Search", :name => nil, class: "btn btn-success" %>
+<% end %>
+
+</div>
+
+<table class="business-results">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @businesses.each do |business| %>
+      <tr>        
+								<td><%= render business %></td>
+      </tr>
+    						</div>
+    <% end %>
+  </tbody>
+</table>
+<div class="message-form">
+<%= link_to "Can't find a business? Suggest it!", new_suggested_path, class: "btn btn-primary", rel: "facebox" %>
+</div>
+

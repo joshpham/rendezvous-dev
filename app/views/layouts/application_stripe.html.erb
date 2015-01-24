@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "the O saves." %></title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+				<%= render :partial => 'stripe/js' %>
+    <%= csrf_meta_tags %>
+				    <%= favicon_link_tag 'favicon.ico' %>
+  </head>
+  <body>
+     <header class="navbar navbar-inverse" role="banner">
+      <%= render 'layouts/navigation' %>
+ </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+  </body>
+</html>

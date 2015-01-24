@@ -1,0 +1,29 @@
+<h1>Gold Subscription</h1>
+<%= form_tag businesses_path do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %><br>
+  <%= hidden_field_tag :plan_id, 1 %>
+  <script
+    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+    data-key=<%= Rails.configuration.stripe[:publishable_key] %>
+    data-name="Stripe Hello"
+    data-description="Gold"
+    data-currency="usd"
+    data-image="/128x128.png">
+  </script>
+<% end %>
+ 
+<h1>Silver Subscription</h1>
+<%= form_tag businesses_path do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %><br>
+  <%= hidden_field_tag :plan_id, 2 %>
+  <script
+    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+    data-key=<%= Rails.configuration.stripe[:publishable_key] %>
+    data-name="Stripe World"
+    data-description="Silver"
+    data-currency="usd"
+    data-image="/128x128.png">
+  </script>
+<% end %>

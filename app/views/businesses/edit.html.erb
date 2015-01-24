@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row">
+
+<%= simple_form_for @business do |f| %>
+  <% if @business.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
+      <ul>
+      <% @business.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="edit-form">
+				<h4>Edit Your Business</h4>
+    <%= f.input :name, input_html: { class: 'form-control' } %>
+    <%= f.input :city, input_html: { class: 'form-control' } %>
+    <%= f.input :state, input_html: { class: 'form-control' } %>
+    <%= f.input :hours, input_html: { class: 'form-control' } %>
+				<p style="margin-top: 10px;">
+    <%= f.button :submit, "Update Business!", :class => "btn-glow primary" %>
+				</p>
+				<%= link_to 'Back', root_path %>
+				<p>
+							<small>Not Happy? Please contact us if you wish to cancel your account.</small>
+				</p>
+				<% end %>
+  </div>
+</div>
+</div>
+
+
+
+
+
+

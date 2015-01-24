@@ -1,0 +1,34 @@
+<div class="payment-form">
+<%= form_tag payments_path, id: 'card-details' do %>
+  <div class="payment-errors"></div>
+
+  <div class="field-box">
+    <label for="card-number">Card Number:</label>
+    <input id="card-number" class="form-control" type="text" data-stripe="number" />
+  </div>
+
+  <div class="field-box">
+    <label for="card-exp-month">Card Expiry Month:</label>
+    <input id="card-exp-month" class="form-control" type="text" data-stripe="exp_month" />
+  </div>
+
+  <div class="field-box">
+    <label for="card-exp-year">Card Expiry Year:</label>
+    <input id="card-exp-year" class="form-control" type="text" data-stripe="exp_year" />
+  </div>
+
+  <div class="field-box">
+    <label for="card-cvc">CVC:</label>
+    <input id="card-cvc" class="form-control" type="text" data-stripe="cvc" />
+  </div>
+
+  <div>
+								Platinum Subscription
+				<input type="hidden" id="payment-type" name="payment_type" value="platinum">
+  </div>
+
+  <div>
+    <input type="submit" value="Pay Now" />
+  </div>
+<% end %>
+</div>

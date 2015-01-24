@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+<li><%= link_to 'Edit Account', edit_business_path(@user.business.slug) rescue '#' %></li>
+
+                    <li><a href="#">Export Data</a></li>
+																				<li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+<% else %>
+  <li><%= link_to new_user_session_path do %>
+  <i class="fa fa-key" style="margin-right: 5px;"></i> Business Login <% end %></li>
+  <li><%= link_to new_user_registration_path do %>
+  <i class="fa fa-pencil" style="margin-right: 5px;"></i> Business Sign Up <% end %></li>
+  <li><%= link_to '/about' do %>
+  <i class="fa fa-heart" style="margin-right: 5px;"></i> Learn more<% end %></li>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyString
+  sent_on: 2014-12-24 07:55:00
+  phone_list_id: 1
+
+two:
+  message: MyString
+  sent_on: 2014-12-24 07:55:00
+  phone_list_id: 1

@@ -1,0 +1,6 @@
+<h3>User</h3>
+<p>Name: <%= @user.name if @user.name %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+<p>Business: <%= link_to "#{@user.business.name}", business_path(@user.business.slug) %></p>
+<p>Phone List: <%= link_to "#{@user.business.phone_list.name}", phone_list_path(@user.business.phone_list)%></p>
+
