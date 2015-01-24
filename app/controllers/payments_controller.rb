@@ -24,14 +24,14 @@ class PaymentsController < ApplicationController
   def create
     if stripe_token = params[:stripe_token]
       if current_user.do_subscription_transaction(params[:payment_type], stripe_token)
-								flash[:notice] = 'Card charged successfully!'
+        flash[:notice] = 'Card charged successfully!'
       else
         flash[:danger] = 'Something went wrong, please double check card details.' 
       end
     else
-      flash[:alert] = 'You did not submit the form correctly'
+        flash[:alert] = 'You did not submit the form correctly'
     end
-    		redirect_to root_path
+    redirect_to root_path
   end
 
 

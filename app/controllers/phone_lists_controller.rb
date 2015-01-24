@@ -8,12 +8,12 @@ class PhoneListsController < ApplicationController
   respond_to :html
 
   def index
-				if current_user.admin?
-    @phone_lists = PhoneList.all
-				else
-				flash[:danger] = "There was a problem with your request, please contact us."
-				redirect_to root_path
-				end
+	if current_user.admin?
+        @phone_lists = PhoneList.all
+	else
+    	flash[:danger] = "There was a problem with your request, please contact us."
+    	redirect_to root_path
+	end
   end
 
   def show
@@ -22,7 +22,7 @@ class PhoneListsController < ApplicationController
   end
 
   def new
-				@phone_list = PhoneList.new
+    @phone_list = PhoneList.new
     respond_with(@phone_list)
   end
 
@@ -31,8 +31,8 @@ class PhoneListsController < ApplicationController
 
   def create
     @phone_list = PhoneList.new(phone_list_params)
-				@phone_list.business_id = current_user.business.id
-				@phone_list.save
+    @phone_list.business_id = current_user.business.id
+    @phone_list.save
     respond_with(@phone_list)
   end
 
@@ -50,10 +50,10 @@ class PhoneListsController < ApplicationController
 
   private
     def set_phone_list
-      @phone_list = PhoneList.find(params[:id])
+        @phone_list = PhoneList.find(params[:id])
     end
 
     def phone_list_params
-      params.require(:phone_list).permit(:user_id, :business_id, :name)
+        params.require(:phone_list).permit(:user_id, :business_id, :name)
     end
 end

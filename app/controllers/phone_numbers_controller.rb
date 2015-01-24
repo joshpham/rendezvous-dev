@@ -9,12 +9,12 @@ class PhoneNumbersController < ApplicationController
   respond_to :html
 
   def index
-				if current_user.admin?
+	if current_user.admin?
     @phone_numbers = PhoneNumber.all
-				else
-				flash[:danger] = "There was a problem with your request, please contact us."
-				redirect_to root_path
-				end
+	else
+	flash[:danger] = "There was a problem with your request, please contact us."
+	redirect_to root_path
+	end
   end
 
   def show
@@ -33,25 +33,24 @@ class PhoneNumbersController < ApplicationController
   def create
     @phone_number = PhoneNumber.new(phone_number_params)
     if @phone_number.save
-				client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_AUTH)
-
-				flash[:notice] = 'Thanks! Verification Code sent! Please reply to complete!'
-				else
-				flash[:danger] = 'Please enter a valid phone number.'
-				end
-				redirect_to root_path
+	    client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_AUTH)
+        flash[:notice] = 'Thanks! Verification Code sent! Please reply to complete!'
+    else
+        flash[:danger] = 'Please enter a valid phone number.'
+    end
+    redirect_to root_path
   end
 
   def update
     @phone_number.update(phone_number_params)
-				if @phone_number.update
-				client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_AUTH)
-    send_message = client.messages.create from: TWILIO_NUMBER, to: "+1#{@phone_number.number}", body: "Yay."
-				flash[:notice] = 'Updated!'
-				else
+        if @phone_number.update
+            client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_AUTH)
+            send_message = client.messages.create from: TWILIO_NUMBER, to: "+1#{@phone_number.number}", body: "Yay."
+            flash[:notice] = 'Updated!'
+            else
 				flash[:danger] = 'Error.'
-				end
-				redirect_to root_path
+        end
+        redirect_to root_path
   end
 
 
@@ -63,10 +62,10 @@ class PhoneNumbersController < ApplicationController
 
   private
     def set_phone_number
-      @phone_number = PhoneNumber.find(params[:id])
+        @phone_number = PhoneNumber.find(params[:id])
     end
 
-		def phone_number_params
-					params.require(:phone_number).permit(:number, :phone_list_id, :verified, :verification_code) 
-  end
+    def phone_number_params
+		params.require(:phone_number).permit(:number, :phone_list_id, :verified, :verification_code) 
+    end
 end

@@ -8,11 +8,11 @@ class PhoneVerificationsController < ApplicationController
        phone_number.mark_phone_as_verified! if phone_number
        phone_number.send_success_message! if phone_number
 				else
-												phone_number = get_stop_service
-										 	phone_number.mark_stop_service! if phone_number
-												phone_number.send_stop_message! if phone_number
-				end
-				render nothing: true
+				phone_number = get_stop_service
+				phone_number.mark_stop_service! if phone_number
+				phone_number.send_stop_message! if phone_number
+    end
+	render nothing: true
   end
 
 

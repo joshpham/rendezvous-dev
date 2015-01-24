@@ -11,21 +11,21 @@ class MessagesController < ApplicationController
   respond_to :html
 
   def index
-				if current_user.admin?
+    if current_user.admin?
     @messages = Message.all
-				else
-				flash[:danger] = "There was a problem with your request, please contact us."
-				redirect_to root_path
-				end
+    else
+    flash[:danger] = "There was a problem with your request, please contact us."
+    redirect_to root_path
+    end
   end
 
   def show
-				@message = Message.find(message_params)
+    @message = Message.find(message_params)
     respond_with(@message)
   end
 
   def new
-				@message = Message.new
+    @message = Message.new
     respond_with(@message)
   end
 
@@ -33,19 +33,19 @@ class MessagesController < ApplicationController
   end
 
   def create
-				@phone_list = current_user.business.phone_list
-				@phone_number = PhoneNumber.where(:phone_list_id => @phone_list.id, :verified => true, :active => true)
+    @phone_list = current_user.business.phone_list
+    @phone_number = PhoneNumber.where(:phone_list_id => @phone_list.id, :verified => true, :active => true)
     @message = Message.new(message_params)
 	    if @message.save
-				  		@phone_number.each do |phone_number|
-								client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_AUTH)
-	       send_message = client.messages.create from: TWILIO_NUMBER, 
-								to: "+1#{phone_number.number}", 
-								body: " #{@phone_list.business.name} - " + " #{@message.message}" 
-					end
-			 end
-				flash[:notice] = 'Sent Text Message!'
-    redirect_to root_path
+            @phone_number.each do |phone_number|
+            client = Twilio::REST::Client.new(TWILIO_SID, TWILIO_AUTH)
+	        send_message = client.messages.create from: TWILIO_NUMBER, 
+            to: "+1#{phone_number.number}", 
+            body: " #{@phone_list.business.name} - " + " #{@message.message}" 
+            end
+        end
+            flash[:notice] = 'Sent Text Message!'
+            redirect_to root_path
   end
 
   def update
@@ -55,7 +55,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-				flash[:notice] = 'Deal removed.'
+    flash[:notice] = 'Deal removed.'
     redirect_to root_path
   end
 

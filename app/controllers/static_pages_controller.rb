@@ -10,18 +10,18 @@ class StaticPagesController < ApplicationController
   respond_to :html
 
   def home
-				if signed_in?
-							@phone_list = @business.phone_list
-							@phone_numbers = PhoneNumber.where(:phone_list_id => @phone_list.id)
-							@messages = Message.where(:phone_list_id => @phone_list.id)
-							@message = Message.new
-					else
-				redirect_to businesses_path
-				end
+	if signed_in?
+		@phone_list = @business.phone_list
+		@phone_numbers = PhoneNumber.where(:phone_list_id => @phone_list.id)
+		@messages = Message.where(:phone_list_id => @phone_list.id)
+			@message = Message.new
+		else
+		redirect_to businesses_path
+	end
   end
 
-		def show
-				@business = Business.find_by_slug(params[:id])
+  def show
+	@business = Business.find_by_slug(params[:id])
     @phone_number = PhoneNumber.new
   end
 
